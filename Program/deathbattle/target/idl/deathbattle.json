@@ -1,0 +1,801 @@
+{
+  "version": "0.1.0",
+  "name": "deathbattle",
+  "constants": [
+    {
+      "name": "SEED",
+      "type": "string",
+      "value": "\"anchor\""
+    }
+  ],
+  "instructions": [
+    {
+      "name": "createProfile",
+      "accounts": [
+        {
+          "name": "profile",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "The Profile account. This is keyed to the creator."
+          ]
+        },
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true,
+          "docs": [
+            "The user creating the Profile."
+          ]
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": "CreateProfileArgs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "createCloneLab",
+      "accounts": [
+        {
+          "name": "cloneLab",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "The Clone Lab account. This is keyed to the creator."
+          ]
+        },
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true,
+          "docs": [
+            "The creator of the Clone Lab. In most cases this will be the game's keypair managing the public lobby."
+          ]
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "createColosseum",
+      "accounts": [
+        {
+          "name": "colosseum",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "The Colosseum account. This is keyed to the creator."
+          ]
+        },
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true,
+          "docs": [
+            "The creator of the Colosseum. In most cases this will be the game's keypair managing the public lobby."
+          ]
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "createGraveyard",
+      "accounts": [
+        {
+          "name": "graveyard",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "The Graveyard account. This is keyed to the creator."
+          ]
+        },
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true,
+          "docs": [
+            "The creator of the Graveyard. In most cases this will be the game's keypair managing the public lobby."
+          ]
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "createClone",
+      "accounts": [
+        {
+          "name": "cloneLab",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "The Clone Lab account. This will be used to store the clone."
+          ]
+        },
+        {
+          "name": "brawler",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "The Clone account. This is the account that will be created."
+          ]
+        },
+        {
+          "name": "profile",
+          "isMut": false,
+          "isSigner": false,
+          "docs": [
+            "The profile of the owner of the new clone."
+          ]
+        },
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true,
+          "docs": [
+            "The player who is creating the clone and adding it to the Clone Lab."
+          ]
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "slotHashes",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "reviveClone",
+      "accounts": [
+        {
+          "name": "cloneLab",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "The Clone Lab account. This will be used to store the clone."
+          ]
+        },
+        {
+          "name": "graveyard",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "The Graveyard account. This will be where the clone is revived from."
+          ]
+        },
+        {
+          "name": "brawler",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "The Clone account. This is the account that will be created."
+          ]
+        },
+        {
+          "name": "profile",
+          "isMut": false,
+          "isSigner": false,
+          "docs": [
+            "The profile of the owner of the new clone."
+          ]
+        },
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true,
+          "docs": [
+            "The player who is creating the clone and adding it to the Clone Lab."
+          ]
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "startBrawl",
+      "accounts": [
+        {
+          "name": "brawl",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "colosseum",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "joinBrawl",
+      "accounts": [
+        {
+          "name": "cloneLab",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "colosseum",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "brawl",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "brawler",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": "JoinBrawlArgs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "runMatch",
+      "accounts": [
+        {
+          "name": "cloneLab",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "The Clone Lab account. The winner will go back here."
+          ]
+        },
+        {
+          "name": "colosseum",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "The Colosseum account. The brawl will transition from pending to ended."
+          ]
+        },
+        {
+          "name": "graveyard",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "The Graveyard account. The losing clones will go here."
+          ]
+        },
+        {
+          "name": "brawl",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "slotHashes",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "closeAccount",
+      "accounts": [
+        {
+          "name": "account",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "clearEndedBrawl",
+      "accounts": [
+        {
+          "name": "cloneLab",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "colosseum",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "brawl",
+          "isMut": false,
+          "isSigner": false,
+          "docs": [
+            "The brawl to remove"
+          ]
+        },
+        {
+          "name": "winner",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Brawl",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "bump",
+            "docs": [
+              "The PDA bump"
+            ],
+            "type": "u8"
+          },
+          {
+            "name": "queue",
+            "docs": [
+              "The queue of Brawler Pubkeys."
+            ],
+            "type": {
+              "vec": "publicKey"
+            }
+          },
+          {
+            "name": "winner",
+            "docs": [
+              "The winner"
+            ],
+            "type": "publicKey"
+          },
+          {
+            "name": "matches",
+            "docs": [
+              "The match up list"
+            ],
+            "type": {
+              "vec": {
+                "defined": "Match"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Brawler",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "bump",
+            "docs": [
+              "The PDA bump."
+            ],
+            "type": "u8"
+          },
+          {
+            "name": "owner",
+            "docs": [
+              "The owner of the clone."
+            ],
+            "type": "publicKey"
+          },
+          {
+            "name": "characterType",
+            "docs": [
+              "The character type of the clone."
+            ],
+            "type": {
+              "defined": "CharacterType"
+            }
+          },
+          {
+            "name": "brawlerType",
+            "docs": [
+              "The brawler type of the clone."
+            ],
+            "type": {
+              "defined": "BrawlerType"
+            }
+          },
+          {
+            "name": "name",
+            "docs": [
+              "The name of the clone."
+            ],
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CloneLab",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "bump",
+            "docs": [
+              "The PDA bump."
+            ],
+            "type": "u8"
+          },
+          {
+            "name": "numBrawlers",
+            "docs": [
+              "The number of brawlers in the Clone Lab."
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "brawlers",
+            "docs": [
+              "A lists of the brawlers in the clone lab."
+            ],
+            "type": {
+              "vec": "publicKey"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Colosseum",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "bump",
+            "docs": [
+              "The PDA bump."
+            ],
+            "type": "u8"
+          },
+          {
+            "name": "numBrawls",
+            "docs": [
+              "The counter of total brawls."
+            ],
+            "type": "u32"
+          },
+          {
+            "name": "pendingBrawls",
+            "docs": [
+              "A list of the brawls filling up."
+            ],
+            "type": {
+              "vec": "publicKey"
+            }
+          },
+          {
+            "name": "activeBrawls",
+            "docs": [
+              "A list of the brawls ready to go."
+            ],
+            "type": {
+              "vec": "publicKey"
+            }
+          },
+          {
+            "name": "endedBrawls",
+            "docs": [
+              "A list of the ended brawls."
+            ],
+            "type": {
+              "vec": "publicKey"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Graveyard",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "bump",
+            "docs": [
+              "The PDA bump."
+            ],
+            "type": "u8"
+          },
+          {
+            "name": "brawlers",
+            "docs": [
+              "A lists of the brawlers in the clone lab."
+            ],
+            "type": {
+              "vec": "publicKey"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Profile",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "bump",
+            "docs": [
+              "The PDA bump."
+            ],
+            "type": "u8"
+          },
+          {
+            "name": "username",
+            "docs": [
+              "The name of the clone."
+            ],
+            "type": "string"
+          }
+        ]
+      }
+    }
+  ],
+  "types": [
+    {
+      "name": "CreateProfileArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "username",
+            "docs": [
+              "The name of the profile."
+            ],
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "JoinBrawlArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "brawler",
+            "docs": [
+              "The address of the Brawler."
+            ],
+            "type": "publicKey"
+          },
+          {
+            "name": "indexHint",
+            "docs": [
+              "The rough index of the brawler in the Brawl queue."
+            ],
+            "type": {
+              "option": "u8"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Match",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "brawler0",
+            "docs": [
+              "The index of the first brawler."
+            ],
+            "type": "u8"
+          },
+          {
+            "name": "brawler1",
+            "docs": [
+              "The index of the second brawler."
+            ],
+            "type": "u8"
+          },
+          {
+            "name": "winner",
+            "docs": [
+              "The winner of the match."
+            ],
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CharacterType",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Default"
+          },
+          {
+            "name": "Male1"
+          },
+          {
+            "name": "Female1"
+          },
+          {
+            "name": "Bonki"
+          },
+          {
+            "name": "SolBlaze"
+          },
+          {
+            "name": "Male2"
+          },
+          {
+            "name": "Female2"
+          },
+          {
+            "name": "Cop"
+          },
+          {
+            "name": "Gangster"
+          }
+        ]
+      }
+    },
+    {
+      "name": "BrawlerType",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Saber"
+          },
+          {
+            "name": "Pistol"
+          },
+          {
+            "name": "Hack"
+          },
+          {
+            "name": "Katana"
+          },
+          {
+            "name": "Virus"
+          },
+          {
+            "name": "Laser"
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "BrawlFull",
+      "msg": "The Brawl is full."
+    },
+    {
+      "code": 6001,
+      "name": "MissingBrawlerAccounts",
+      "msg": "Missing Brawler accounts."
+    },
+    {
+      "code": 6002,
+      "name": "InvalidBrawler",
+      "msg": "Invalid Brawler."
+    },
+    {
+      "code": 6003,
+      "name": "NameTooLong",
+      "msg": "Name too long."
+    },
+    {
+      "code": 6004,
+      "name": "InvalidBrawl",
+      "msg": "Invalid Brawl."
+    },
+    {
+      "code": 6005,
+      "name": "InvalidOwner",
+      "msg": "Invalid Owner of the Brawler."
+    },
+    {
+      "code": 6006,
+      "name": "NumericalOverflowError",
+      "msg": "Numerical overflow error."
+    },
+    {
+      "code": 6007,
+      "name": "WinnerNotDetermined",
+      "msg": "Winner not determined"
+    },
+    {
+      "code": 6008,
+      "name": "InvalidWinner",
+      "msg": "Invalid Winner"
+    }
+  ]
+}
