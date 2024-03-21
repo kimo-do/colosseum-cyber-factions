@@ -1,17 +1,53 @@
 {
     "m_SelectedDeviceId": "3A201FDJG000T9",
     "m_SelectedPackage": {
-        "deviceId": "",
-        "name": "",
-        "processId": 0,
+        "deviceId": "3A201FDJG000T9",
+        "name": "com.SlowrugStudios.RumbleCity",
+        "processId": 29304,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "3A201FDJG000T9",
-            "name": "com.SlowrugStudios.RebirthRumble",
-            "processId": 3785,
+            "name": "com.google.android.apps.nexuslauncher",
+            "processId": 416,
+            "exited": false
+        },
+        {
+            "deviceId": "3A201FDJG000T9",
+            "name": "com.SlowrugStudios.RumbleCity",
+            "processId": 14230,
+            "exited": true
+        },
+        {
+            "deviceId": "3A201FDJG000T9",
+            "name": "com.SlowrugStudios.RumbleCity",
+            "processId": 14599,
+            "exited": true
+        },
+        {
+            "deviceId": "3A201FDJG000T9",
+            "name": "com.SlowrugStudios.RumbleCity",
+            "processId": 15066,
+            "exited": true
+        },
+        {
+            "deviceId": "3A201FDJG000T9",
+            "name": "com.SlowrugStudios.RumbleCity",
+            "processId": 27278,
+            "exited": true
+        },
+        {
+            "deviceId": "3A201FDJG000T9",
+            "name": "com.SlowrugStudios.RumbleCity",
+            "processId": 29044,
+            "exited": false
+        },
+        {
+            "deviceId": "3A201FDJG000T9",
+            "name": "com.SlowrugStudios.RumbleCity",
+            "processId": 29304,
             "exited": false
         }
     ],

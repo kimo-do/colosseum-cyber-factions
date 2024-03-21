@@ -2,7 +2,6 @@
 using UnityEngine;
 using UnityEditor;
 using UnityEditor.SceneManagement;
-using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 using UnityEngine.Rendering;
 
 public class PrefabSpawnerEditor : EditorWindow

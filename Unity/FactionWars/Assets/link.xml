@@ -1,0 +1,4 @@
+<linker>
+  <!-- Preserve the entire assembly -->
+  <assembly fullname="discord_game_sdk" preserve="all"/>
+</linker>
