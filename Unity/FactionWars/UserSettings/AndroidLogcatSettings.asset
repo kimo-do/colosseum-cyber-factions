@@ -1,53 +1,41 @@
 {
     "m_SelectedDeviceId": "3A201FDJG000T9",
     "m_SelectedPackage": {
-        "deviceId": "3A201FDJG000T9",
-        "name": "com.SlowrugStudios.RumbleCity",
-        "processId": 29304,
+        "deviceId": "",
+        "name": "",
+        "processId": 0,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "3A201FDJG000T9",
-            "name": "com.google.android.apps.nexuslauncher",
-            "processId": 416,
-            "exited": false
-        },
-        {
-            "deviceId": "3A201FDJG000T9",
-            "name": "com.SlowrugStudios.RumbleCity",
-            "processId": 14230,
-            "exited": true
-        },
-        {
-            "deviceId": "3A201FDJG000T9",
-            "name": "com.SlowrugStudios.RumbleCity",
-            "processId": 14599,
-            "exited": true
-        },
-        {
-            "deviceId": "3A201FDJG000T9",
-            "name": "com.SlowrugStudios.RumbleCity",
-            "processId": 15066,
-            "exited": true
-        },
-        {
-            "deviceId": "3A201FDJG000T9",
-            "name": "com.SlowrugStudios.RumbleCity",
-            "processId": 27278,
-            "exited": true
-        },
-        {
-            "deviceId": "3A201FDJG000T9",
-            "name": "com.SlowrugStudios.RumbleCity",
-            "processId": 29044,
-            "exited": false
-        },
-        {
-            "deviceId": "3A201FDJG000T9",
             "name": "com.SlowrugStudios.RumbleCity",
             "processId": 29304,
+            "exited": true
+        },
+        {
+            "deviceId": "3A201FDJG000T9",
+            "name": "com.SlowrugStudios.RumbleCity",
+            "processId": 27334,
+            "exited": true
+        },
+        {
+            "deviceId": "3A201FDJG000T9",
+            "name": "com.SlowrugStudios.RumbleCity",
+            "processId": 27860,
+            "exited": true
+        },
+        {
+            "deviceId": "3A201FDJG000T9",
+            "name": "com.SlowrugStudios.RumbleCity",
+            "processId": 29321,
+            "exited": true
+        },
+        {
+            "deviceId": "3A201FDJG000T9",
+            "name": "com.whatsapp",
+            "processId": 8086,
             "exited": false
         }
     ],

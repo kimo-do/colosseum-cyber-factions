@@ -18,21 +18,12 @@ public class LoginScreen : MonoBehaviour
 {
     // Screens
     public RectTransform connectWalletScreen;
-    public RectTransform createProfileScreen;
 
     public Button editorLoginButton;
     public Button loginWalletAdapterButton;
     public Button audioToggle;
 
     public Volume globalVolume;
-
-    // Profile
-    public Button initProfileButton;
-    public Button profilePictureButton;
-    public Image profilePictureImage;
-    public TMP_InputField usernameInput;
-    public TextMeshProUGUI pubKeyText;
-    public TextMeshProUGUI errorText;
 
     private bool creatingProfile = false;
     private bool audioOn = true;
@@ -51,11 +42,10 @@ public class LoginScreen : MonoBehaviour
         globalVolume.profile.TryGet(out chromaticAberration);
        
         connectWalletScreen.gameObject.SetActive(true);
-        createProfileScreen.gameObject.SetActive(false);
 
         editorLoginButton.onClick.AddListener(OnEditorLoginClicked);
         loginWalletAdapterButton.onClick.AddListener(OnLoginWalletAdapterButtonClicked);
-        initProfileButton.onClick.AddListener(OnInitGameDataButtonClicked);
+        //initProfileButton.onClick.AddListener(OnInitGameDataButtonClicked);
         audioToggle.onClick.AddListener(ToggleAudio);
 
         //BrawlAnchorService.OnPlayerDataChanged += OnPlayerDataChanged;
@@ -129,7 +119,7 @@ public class LoginScreen : MonoBehaviour
         {
             Debug.Log("Initial data load complete");
 
-            SceneManager.LoadScene("LobbyScene");
+            SceneManager.LoadScene("FactionGameScene");
             //var isInitialized = BrawlAnchorService.Instance.IsInitialized();
 
             //if (!isInitialized)
@@ -140,7 +130,6 @@ public class LoginScreen : MonoBehaviour
         else
         {
             connectWalletScreen.gameObject.SetActive(true);
-            createProfileScreen.gameObject.SetActive(false);
         }
     }
 
@@ -157,16 +146,8 @@ public class LoginScreen : MonoBehaviour
 
     private async void OnInitGameDataButtonClicked()
     {
-        errorText.text = "";
-
-        if (usernameInput.text.Length < 3)
-        {
-            errorText.text = "Username must be at least 3 characters.";
-            return;
-        }
-
         // On local host we probably dont have the session key progeam, but can just sign with the in game wallet instead. 
-        await BrawlAnchorService.Instance.InitAccounts(!Web3.Rpc.NodeAddress.AbsoluteUri.Contains("localhost"), usernameInput.text);
+        await BrawlAnchorService.Instance.InitAccounts(!Web3.Rpc.NodeAddress.AbsoluteUri.Contains("localhost"), "Default");
     }
 
     private void OnPlayerDataChanged(PlayerData playerData)
@@ -188,7 +169,6 @@ public class LoginScreen : MonoBehaviour
         else
         {
             connectWalletScreen.gameObject.SetActive(true);
-            createProfileScreen.gameObject.SetActive(false);
         }
     }
 

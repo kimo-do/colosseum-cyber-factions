@@ -14,8 +14,8 @@ public class ProfileController : Window
 {
     public RectTransform noBrawlers;
     public RectTransform openLobby;
-    public GameObject yourBrawlers;
-    public GameObject yourBrawlersContainer;
+    //public GameObject yourBrawlers;
+    //public GameObject yourBrawlersContainer;
     public TMP_Text infoLabel;
 
     public List<GameObject> gameObjects; // List of GameObjects to layout
@@ -49,7 +49,7 @@ public class ProfileController : Window
         }
         else
         {
-            yourBrawlers.gameObject.SetActive(false);
+            //yourBrawlers.gameObject.SetActive(false);
         }
 
         isShowingProfile = toggle;
@@ -57,7 +57,7 @@ public class ProfileController : Window
 
     private void UpdateProfileView()
     {
-        yourBrawlers.gameObject.SetActive(true);
+        //yourBrawlers.gameObject.SetActive(true);
         openLobby.gameObject.SetActive(false);
         joinOpenLobbyButton.gameObject.SetActive(false);
         joinOpenLobbyButton.interactable = false;
@@ -127,7 +127,7 @@ public class ProfileController : Window
 
         //PositionGameObjects();
         noBrawlers.gameObject.SetActive(true);
-        yourBrawlers.gameObject.SetActive(true);
+        //yourBrawlers.gameObject.SetActive(true);
     }
 
 
@@ -336,7 +336,7 @@ public class ProfileController : Window
             if (isShowingProfile)
             {
                 noBrawlers.gameObject.SetActive(false);
-                yourBrawlers.gameObject.SetActive(true);
+                //yourBrawlers.gameObject.SetActive(true);
 
                 if (AttemptedJoinLobby == null)
                 {

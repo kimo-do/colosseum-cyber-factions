@@ -29,10 +29,11 @@ public class GameScreen : MonoBehaviour
     public static GameScreen instance;
 
     [Header("Screens")]
-    public GraveyardController graveyardScreen;
+    //public GraveyardController graveyardScreen;
     public ProfileController profileScreen;
     public BrawlController brawlScreen;
     public RectTransform initScreen;
+    public BlockDetailController blockDetailScreen;
 
     [Header("Misc")]
     public Button ChuckWoodSessionButton;
@@ -380,7 +381,7 @@ public class GameScreen : MonoBehaviour
     {
         IsPlayingOutBattle = false;
         DisableAllScreens();
-        graveyardScreen.Toggle(true);
+        //graveyardScreen.Toggle(true);
     }
 
     public void OpenProfile()
@@ -418,7 +419,7 @@ public class GameScreen : MonoBehaviour
     private void DisableAllScreens()
     {
         profileScreen.Toggle(false);
-        graveyardScreen.Toggle(false);
+        //graveyardScreen.Toggle(false);
         brawlScreen.Toggle(false);
         initScreen.gameObject.SetActive(false);
     }

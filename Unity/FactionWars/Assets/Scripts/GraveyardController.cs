@@ -42,7 +42,7 @@ public class GraveyardController : Window
 
         GameScreen.instance.FalledBrawlersUpdated += OnFallenBrawlersUpdated;
 
-        IdleGlowEffect();
+        //IdleGlowEffect();
     }
 
     private void OnFallenBrawlersUpdated(int brawlers)

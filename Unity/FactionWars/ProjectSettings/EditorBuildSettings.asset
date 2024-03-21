@@ -9,12 +9,6 @@ EditorBuildSettings:
     path: Assets/FactionWars/FactionLoadingScene.unity
     guid: 26d9caa2a979b9c4b83b8142d56c4e80
   - enabled: 1
-    path: Assets/Game/Scenes/LoginScene.unity
-    guid: 325f7fb08642c46a6a1d7f860111bd4b
-  - enabled: 1
-    path: Assets/Game/Scenes/LobbyScene.unity
-    guid: a9ba0854faf0adf44ace2004f62d6189
-  - enabled: 1
-    path: Assets/Game/Scenes/GameScene.unity
-    guid: a3de581c39b3447939f31966c9c9d8fb
+    path: Assets/FactionWars/FactionGameScene.unity
+    guid: 92533f52f27b52845b34a4df6d8ba825
   m_configObjects: {}
